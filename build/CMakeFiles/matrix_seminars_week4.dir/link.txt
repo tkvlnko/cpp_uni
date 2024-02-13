@@ -1,0 +1,1 @@
+/usr/bin/clang++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/matrix_seminars_week4.dir/seminars/week4/matrix_problem/main.cpp.o CMakeFiles/matrix_seminars_week4.dir/seminars/week4/matrix_problem/matrix.cpp.o -o matrix_seminars_week4 

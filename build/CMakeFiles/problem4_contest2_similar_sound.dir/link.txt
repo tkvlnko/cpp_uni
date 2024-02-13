@@ -1,0 +1,1 @@
+/usr/bin/clang++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/problem4_contest2_similar_sound.dir/contests/contest_2/problem4.cpp.o -o problem4_contest2_similar_sound 
