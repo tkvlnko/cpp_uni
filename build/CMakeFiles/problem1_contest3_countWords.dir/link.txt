@@ -1,1 +1,0 @@
-/usr/bin/clang++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/problem1_contest3_countWords.dir/contests/contest_3/problem1_countWords.cpp.o -o problem1_contest3_countWords 

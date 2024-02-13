@@ -1,6 +1,0 @@
-/Users/apple/Desktop/cpp_uni/build/CMakeFiles/matrix_seminars_week4.dir
-/Users/apple/Desktop/cpp_uni/build/CMakeFiles/readfile_seminars_week4.dir
-/Users/apple/Desktop/cpp_uni/build/CMakeFiles/problem4_contest2_similar_sound.dir
-/Users/apple/Desktop/cpp_uni/build/CMakeFiles/problem1_contest3_countWords.dir
-/Users/apple/Desktop/cpp_uni/build/CMakeFiles/edit_cache.dir
-/Users/apple/Desktop/cpp_uni/build/CMakeFiles/rebuild_cache.dir

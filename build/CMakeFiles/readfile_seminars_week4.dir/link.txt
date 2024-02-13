@@ -1,1 +1,0 @@
-/usr/bin/clang++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/readfile_seminars_week4.dir/seminars/week4/readFile_problem/main.cpp.o -o readfile_seminars_week4 
