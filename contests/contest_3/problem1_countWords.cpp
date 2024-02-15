@@ -1,45 +1,53 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <string>
+#include <algorithm>
 #include <cctype>
 
-bool isWord(const std::string& word, size_t& c) {
+bool isWord(const std::string& word, size_t* c) {
+    if (word.empty()) {
+        return false;
+    }
     bool flag = true;
     for (char elem : word) {
-        if (!std::isalpha(elem)) {
+        if (!std::isalpha(elem))
             flag = std::ispunct(elem);
-        }
-        else {
-            c++;
-        }
+        else
+            (*c)++;
     }
     return flag;
 }
 
-void countFileStatistics(const std::string& filePath) {
+void countFileStatistics(const std::string& filePath, size_t* c, size_t* w, size_t* l) {
     std::ifstream ifile(filePath);
 
-    size_t l = 0, w = 0, c = 0;
     std::string line;
     while (std::getline(ifile, line)) {
-        l++;
+        (*l)++;
         std::replace(line.begin(), line.end(), '-', ' ');
+        std::replace(line.begin(), line.end(), '\'', ' ');
         std::replace(line.begin(), line.end(), '.', ' ');
         std::stringstream ss(line);
-        std::cout << line << '\n';
 
         while (!ss.eof()) {
             std::string word;
             ss >> word;
             if (isWord(word, c)) {
-                w++;
+                (*w)++;
             }
         }
     }
-    std::cout << l << ' ' << w << ' ' << c;
 }
 
 int main() {
-    countFileStatistics("/Users/apple/Desktop/cpp_uni/contests/contest_3/data/input.txt");
+    size_t c = 0, w = 0, l = 0;
+    // std::string filepath;
+    // std::cin >> filepath;
+    countFileStatistics("/Users/apple/Desktop/cpp_uni/contests/contest_3/data/input.txt", &c, &w, &l);
+    std::cout << "Input file contains:" << '\n' <<
+    c << " letters" << '\n' <<
+    w << " words" << '\n' <<
+    l << " lines";
     return 0;
 }
