@@ -13,7 +13,7 @@ std::string join(const std::vector<std::string>& tokens, char delimiter) {
 }
 
 int main() {
-    std::vector<std::string> vec {};
+    std::vector<std::string> vec {"kjh", "kjh"};
     std::cout << join(vec, '-');
     return 0;
 }
