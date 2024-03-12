@@ -1,0 +1,7 @@
+6 3
+sweden 4 6 3
+queen 0 2 2 
+norway 4 7 5
+france 4 7 5
+france2 4 7 5
+king -1 3 2

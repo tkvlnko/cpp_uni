@@ -13,16 +13,25 @@ set(CMAKE_CXX_STANDARD 20)
 
 
 #contest2
+
 # add_executable(problem4_contest2_similar_sound                         ./contests/contest_2/problem4.cpp)
 
 
+
+
 #contest3
+
 # add_executable(problem1_contest3_countWords                         ./contests/contest_3/problem1_countWords.cpp)
 # add_executable(problem5_contest3_splitString                          ./contests/contest_3/problem5_split.cpp)
 # add_executable(problem6_contest3_extractDigits                          ./contests/contest_3/problem6_extractDigits.cpp)
 # add_executable(problem4_contest3_commonSuffix                          ./contests/contest_3/problem4_commonSuffix.cpp)
 
 
+
+
 #contest5(after mid)
+
 # add_executable(problem3_contest5_complex                          ./contests/contest_5/problem3_complex.cpp)
-add_executable(problem4_contest5_rational                          ./contests/contest_5/problem4_rational.cpp)
+# add_executable(problem4_contest5_rational                          ./contests/contest_5/problem4_rational.cpp)
+add_executable(problem2_contest5_cos_similarity                      ./contests/contest_5/problem2_cos_similarity.cpp)
+
