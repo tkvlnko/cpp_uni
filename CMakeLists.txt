@@ -33,5 +33,14 @@ set(CMAKE_CXX_STANDARD 20)
 
 # add_executable(problem3_contest5_complex                          ./contests/contest_5/problem3_complex.cpp)
 # add_executable(problem4_contest5_rational                          ./contests/contest_5/problem4_rational.cpp)
-add_executable(problem2_contest5_cos_similarity                      ./contests/contest_5/problem2_cos_similarity.cpp)
+# add_executable(problem2_contest5_cos_similarity                      ./contests/contest_5/problem2_cos_similarity.cpp)
+
+
+
+
+# seminars inheritance
+
+# add_executable(inheritance                     ./seminars/week10/inheritance.cpp)
+# add_executable(class_person                     ./seminars/week10/main_person.cpp)
+
 

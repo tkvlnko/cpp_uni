@@ -13,8 +13,9 @@ void defineSimilatiry(std::string filepath)
     std::vector<std::string> similarWords;
     std::string myWord;
     std::vector<int> myWordCoords;
-    std::unordered_map<std::string, int> result;
-    int maximum = -100 * 9;
+    // std::unordered_map<std::string, int> result;
+    std::vector<std::vector<std::string, int>> res;
+    int maximum = -100000;
 
     std::string line1;
     std::getline(inputfile, line1);
@@ -35,6 +36,7 @@ void defineSimilatiry(std::string filepath)
     while (!inputfile.eof() && inputfile.good())
     {
         std::vector<int> newWordCoords;
+        std::vector<std::string, int> newVec;
         std::getline(inputfile, line);
         std::stringstream ss(line);
         std::string newWord;
@@ -59,15 +61,30 @@ void defineSimilatiry(std::string filepath)
         {
             maximum = sum;
         }
-        result[newWord] = sum;
+        newVec[0] = newWord;
+        newVec[1] = sum;
+        res.push_back(newVec);
+
+        // result[newWord] = sum;
     }
-    for (const auto& [key, value]: result)
+
+    for (int i = 0; i < res.size(); i++)
     {
-        if (value == maximum)
+        for (int j = 0; j < 2; j++)
         {
-            std::cout << key << '\n';
+            if (res[i][j] == maximum)
+            {
+                std::cout << res[i][j] << '\n';
+            }
         }
     }
+    // for (const auto& [key, value]: result)
+    // {
+    //     if (value == maximum)
+    //     {
+    //         std::cout << key << '\n';
+    //     }
+    // }
 }
 
 int main()
