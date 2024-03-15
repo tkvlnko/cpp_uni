@@ -1,8 +1,10 @@
 #include <fstream>
 #include <iostream>
+#include <limits>
 #include <sstream>
 #include <string>
 #include <unordered_map>
+#include <utility>
 #include <vector>
 
 void defineSimilatiry(std::string filepath)
@@ -13,9 +15,14 @@ void defineSimilatiry(std::string filepath)
     std::vector<std::string> similarWords;
     std::string myWord;
     std::vector<int> myWordCoords;
-    // std::unordered_map<std::string, int> result;
-    std::vector<std::vector<std::string, int>> res;
-    int maximum = -100000;
+    if (!inputfile.is_open())
+    {
+        std::cerr << "Cannot open the file: " << filepath << std::endl;
+        return;
+    }
+
+    std::vector<std::pair<std::string, int>> res;
+    int maximum = std::numeric_limits<int>::min();
 
     std::string line1;
     std::getline(inputfile, line1);
@@ -36,7 +43,8 @@ void defineSimilatiry(std::string filepath)
     while (!inputfile.eof() && inputfile.good())
     {
         std::vector<int> newWordCoords;
-        std::vector<std::string, int> newVec;
+        std::pair<std::string, int> newVec;
+
         std::getline(inputfile, line);
         std::stringstream ss(line);
         std::string newWord;
@@ -51,43 +59,30 @@ void defineSimilatiry(std::string filepath)
 
         for (int i = 0; i < dimension; i++)
         {
-            // std::cout << myWordCoords[i] << '\t' << newWordCoords[i] << '\n';
             sum += (myWordCoords[i] * newWordCoords[i]);
         }
-        // std::cout << sum << '\t';
-
 
         if (sum > maximum)
         {
             maximum = sum;
         }
-        newVec[0] = newWord;
-        newVec[1] = sum;
+        newVec.first = newWord;
+        newVec.second = sum;
         res.push_back(newVec);
-
-        // result[newWord] = sum;
     }
 
-    for (int i = 0; i < res.size(); i++)
+    for (size_t i = 0; i < res.size(); i++)
     {
-        for (int j = 0; j < 2; j++)
+        if (res[i].second == maximum)
         {
-            if (res[i][j] == maximum)
-            {
-                std::cout << res[i][j] << '\n';
-            }
+            std::cout << res[i].first << '\n';
         }
     }
-    // for (const auto& [key, value]: result)
-    // {
-    //     if (value == maximum)
-    //     {
-    //         std::cout << key << '\n';
-    //     }
-    // }
+    inputfile.close();
 }
 
 int main()
 {
-    defineSimilatiry("/Users/apple/Desktop/cpp_uni/contests/data/input.txt");
+    defineSimilatiry("input.txt");
+    return 0;
 }

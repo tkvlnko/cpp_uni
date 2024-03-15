@@ -15,8 +15,8 @@ public:
     Rational operator*=(const Rational&);
     Rational operator/=(const Rational&);
 
-    Rational operator++();
-    Rational operator--();
+    Rational& operator++();
+    Rational& operator--();
     Rational operator++(int);
     Rational operator--(int);
 
@@ -31,11 +31,27 @@ public:
     Rational operator-();
 
 
-    Rational normalize() const;
+    friend void normalize(Rational& other)
+    {
+        int gcd1 = Rational::gcd(other.num, other.den);
+        other.num = other.num / gcd1;
+        other.den = other.den / gcd1;
+        if (other.den < 0)
+        {
+            other.den = -other.den;
+            other.num = -other.num;
+        }
+    }
     double numerator() const;
     double denominator() const;
 
     friend std::ostream& operator<<(std::ostream& ss, const Rational& comp);
+    static int gcd(int a, int b)
+    {
+        if (b == 0)
+            return a;
+        return gcd(b, a % b);
+    }
 };
 
 
@@ -43,18 +59,19 @@ Rational::Rational(int num, int den)
 {
     this->num = num;
     this->den = den;
+    normalize(*this);
 }
 
 double Rational::numerator() const
 {
-    Rational r = this->normalize();
-    return r.num;
+
+    return num;
 }
 
 double Rational::denominator() const
 {
-    Rational r = this->normalize();
-    return r.den;
+
+    return den;
 }
 
 //unary -
@@ -66,7 +83,7 @@ Rational Rational::operator-()
 //unary +
 Rational Rational::operator+()
 {
-    return {+num, den};
+    return {num, den};
 }
 
 
@@ -144,30 +161,19 @@ Rational operator/(int i, Rational& other)
 }
 
 
-Rational Rational::normalize() const
-{
-    int gcd = std::gcd(num, den);
-    return {num / gcd, den / gcd};
-}
-
-
 bool Rational::operator==(const Rational& other)
 {
-    Rational r = other;
-    return (this->normalize().num == (r.normalize()).num) &&
-           (this->normalize().den == (r.normalize()).den);
+    return ((num == other.num) && (den == other.den));
 }
 bool Rational::operator!=(const Rational& other)
 {
-    Rational r = other;
-    return (this->normalize().num != (r.normalize()).num) ||
-           (this->normalize().den != (r.normalize()).den);
+    return !((num == other.num) && (den == other.den));
 }
 
-Rational Rational::operator++()
+Rational& Rational::operator++()
 {
-    *this = *this + 1;
-    return (*this).normalize();
+    *this += 1;
+    return *this;
 }
 
 Rational Rational::operator++(int)
@@ -175,23 +181,23 @@ Rational Rational::operator++(int)
     Rational r = *this;
     // *this = *this + 1;
     ++(*this);
-    return r.normalize();
+    return r;
 }
 
-Rational Rational::operator--()
+Rational& Rational::operator--()
 {
     *this = *this - 1;
 
-    return (*this).normalize();
+    return *this;
 }
 
 Rational Rational::operator--(int)
 {
     Rational r = *this;
     // *this = *this - 1;
-    ++(*this);
+    --(*this);
 
-    return r.normalize();
+    return r;
 }
 
 std::ostream& operator<<(std::ostream& ss, const Rational& r)
