@@ -40,7 +40,7 @@ void defineSimilatiry(std::string filepath)
     }
 
     std::string line;
-    while (!inputfile.eof() && inputfile.good())
+    for (int k = 0; k < numOfWords; k++)
     {
         std::vector<int> newWordCoords;
         std::pair<std::string, int> newVec;
@@ -83,6 +83,6 @@ void defineSimilatiry(std::string filepath)
 
 int main()
 {
-    defineSimilatiry("input.txt");
+    defineSimilatiry("/Users/apple/Desktop/cpp_uni/contests/data/input.txt");
     return 0;
 }

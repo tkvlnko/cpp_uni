@@ -15,7 +15,7 @@ public:
     Rational operator*=(const Rational&);
     Rational operator/=(const Rational&);
 
-    Rational& operator++();
+    Rational operator++();
     Rational& operator--();
     Rational operator++(int);
     Rational operator--(int);
@@ -46,6 +46,7 @@ public:
     double denominator() const;
 
     friend std::ostream& operator<<(std::ostream& ss, const Rational& comp);
+
     static int gcd(int a, int b)
     {
         if (b == 0)
@@ -170,16 +171,17 @@ bool Rational::operator!=(const Rational& other)
     return !((num == other.num) && (den == other.den));
 }
 
-Rational& Rational::operator++()
+// префикс, возвращаем сразу увеличенный на 1
+Rational Rational::operator++()
 {
     *this += 1;
     return *this;
 }
 
+// постфикс, возвращаем текущий но увеличиваем на 1
 Rational Rational::operator++(int)
 {
     Rational r = *this;
-    // *this = *this + 1;
     ++(*this);
     return r;
 }
@@ -187,19 +189,18 @@ Rational Rational::operator++(int)
 Rational& Rational::operator--()
 {
     *this = *this - 1;
-
     return *this;
 }
 
 Rational Rational::operator--(int)
 {
     Rational r = *this;
-    // *this = *this - 1;
     --(*this);
-
     return r;
 }
 
+// возвращаем поток (сам себя по ссылке)
+// на вход подаем поток по ссылке, говорим что и как туда положить
 std::ostream& operator<<(std::ostream& ss, const Rational& r)
 {
     if (r.num == 0)
@@ -211,4 +212,13 @@ std::ostream& operator<<(std::ostream& ss, const Rational& r)
         ss << r.num << "/" << r.den;
     }
     return ss;
+}
+
+
+int main()
+{
+    Rational r{1, 1};
+    std::cout << r << '\n';
+    Rational y = ++ ++r;
+    std::cout << y << '\n';
 }
