@@ -23,6 +23,7 @@ int main()
         mst.insert(a[i]);
     }
 
+
     for (int i = 0; i <= (n - k); i++)
     {
         std::cout << *mst.begin() << '\n';
