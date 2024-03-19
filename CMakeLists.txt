@@ -29,6 +29,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 
 
+
 #contest5(after mid)
 
 # add_executable(problem3_contest5_complex                          ./contests/contest_5/problem3_complex.cpp)
@@ -49,6 +50,19 @@ set(CMAKE_CXX_STANDARD 20)
 
 
 # add_executable(custom_vector                    ./seminars/week11/custom_vector/main.cpp   ./seminars/week11/custom_vector/vector.h    ./seminars/week11/custom_vector/vector.cpp)
-add_executable(custom_vector                    ./seminars/vector/vector.hpp ./seminars/vector/main.cpp )
+# add_executable(custom_vector                    ./seminars/vector/vector.hpp ./seminars/vector/main.cpp )
 
 
+
+
+
+# read file escort
+# add_executable(read_file_escort                   ./seminars/read_file/main.cpp)
+
+
+
+# add_executable(data_ya_co                   ./seminars/yandex_contest_before_mid/data.cpp)
+# add_executable(data_ya_co                   ./seminars/yandex_contest_before_mid/set.cpp)
+# add_executable(data_ya_co                   ./seminars/yandex_contest_before_mid/set2_alphabet.cpp)
+# add_executable(data_ya_co                   ./seminars/yandex_contest_before_mid/professor.cpp)
+add_executable(data_ya_co                   ./seminars/yandex_contest_before_mid/substrings.cpp)
