@@ -50,7 +50,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 
 # add_executable(custom_vector                    ./seminars/week11/custom_vector/main.cpp   ./seminars/week11/custom_vector/vector.h    ./seminars/week11/custom_vector/vector.cpp)
-# add_executable(custom_vector                    ./seminars/vector/vector.hpp ./seminars/vector/main.cpp )
+add_executable(custom_vector                    ./seminars/vector/vector.hpp ./seminars/vector/main.cpp )
 
 
 
@@ -65,4 +65,12 @@ set(CMAKE_CXX_STANDARD 20)
 # add_executable(data_ya_co                   ./seminars/yandex_contest_before_mid/set.cpp)
 # add_executable(data_ya_co                   ./seminars/yandex_contest_before_mid/set2_alphabet.cpp)
 # add_executable(data_ya_co                   ./seminars/yandex_contest_before_mid/professor.cpp)
-add_executable(data_ya_co                   ./seminars/yandex_contest_before_mid/substrings.cpp)
+# add_executable(data_ya_co                   ./seminars/yandex_contest_before_mid/substrings.cpp)
+
+# add_executable(data_ya_co                   ./seminars/yandex_contest_before_mid/vector_3d.cpp)
+
+
+
+
+
+add_executable(midterm                   ./midterm/p1.cpp)

@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/Users/apple/Desktop/midterm2024/build",
+  "command": "/usr/bin/clang++   -g -O0 -Werror=return-type -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -o CMakeFiles/midterm.dir/src/main.cpp.o -c /Users/apple/Desktop/midterm2024/src/main.cpp",
+  "file": "/Users/apple/Desktop/midterm2024/src/main.cpp",
+  "output": "CMakeFiles/midterm.dir/src/main.cpp.o"
+}
+]

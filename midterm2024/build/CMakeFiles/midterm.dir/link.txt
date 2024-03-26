@@ -1,0 +1,1 @@
+/usr/bin/clang++ -g -O0 -Werror=return-type -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/midterm.dir/src/main.cpp.o -o midterm 
